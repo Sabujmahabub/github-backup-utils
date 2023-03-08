@@ -1,0 +1,16 @@
+name: Shellcheck files
+
+on: push
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Lint shell files
+        uses: azohra/shell-linter@6bbeaa868df09c34ddc008e6030cfe89c03394a1 # v0.6.0
+        with:
+          path: "share/github-backup-utils/,bin/"
+          exclude-paths: "share/github-backup-utils/version"
